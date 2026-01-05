@@ -2,13 +2,13 @@
 	"info": {
 		"_postman_id": "wishlist-jwt-api-2026",
 		"name": "Wishlist REST API - JWT Authentication",
-		"description": "Teljes API végpontok a Wishlist alkalmazáshoz JWT autentikációval\n\nBase URL: http://localhost:8000/api\n\nHasználat:\n1. Register vagy Login végponttal szerezz JWT tokent\n2. A token automatikusan mentésre kerül a 'jwt_token' változóba\n3. A védett végpontok automatikusan használják ezt a tokent",
+		"description": "Teljes API végpontok a Wishlist alkalmazáshoz JWT autentikációval\n\nBase URL: http://localhost/wishlist/public/api\n\nHasználat:\n1. Register vagy Login végponttal szerezz JWT tokent\n2. A token automatikusan mentésre kerül a 'jwt_token' változóba\n3. A védett végpontok automatikusan használják ezt a tokent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:8000/api",
+			"value": "http://localhost/wishlist/public/api",
 			"type": "string"
 		},
 		{

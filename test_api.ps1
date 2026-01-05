@@ -7,7 +7,7 @@ Write-Host ""
 # Test 1: Get Products (Public)
 Write-Host "1. Testing GET /api/products (public)" -ForegroundColor Yellow
 try {
-    $products = Invoke-RestMethod -Uri "http://localhost/wishlists/public/api/products" -Method Get
+    $products = Invoke-RestMethod -Uri "http://localhost/wishlist/public/api/products" -Method Get
     Write-Host "   ✓ Success! Found $($products.total) products" -ForegroundColor Green
 } catch {
     Write-Host "   ✗ Failed: $_" -ForegroundColor Red
@@ -23,7 +23,7 @@ $loginData = @{
 } | ConvertTo-Json
 
 try {
-    $loginResponse = Invoke-RestMethod -Uri "http://localhost/wishlists/public/api/login" -Method Post -Body $loginData -ContentType "application/json"
+    $loginResponse = Invoke-RestMethod -Uri "http://localhost/wishlist/public/api/login" -Method Post -Body $loginData -ContentType "application/json"
     $token = $loginResponse.access_token
     Write-Host "   ✓ Login successful! Token received" -ForegroundColor Green
     Write-Host "   User: $($loginResponse.user.name) (Admin: $($loginResponse.user.is_admin))" -ForegroundColor Cyan
@@ -41,7 +41,7 @@ $headers = @{
 }
 
 try {
-    $profile = Invoke-RestMethod -Uri "http://localhost/wishlists/public/api/me" -Method Get -Headers $headers
+    $profile = Invoke-RestMethod -Uri "http://localhost/wishlist/public/api/me" -Method Get -Headers $headers
     Write-Host "   ✓ Profile retrieved!" -ForegroundColor Green
     Write-Host "   Name: $($profile.name), Email: $($profile.email)" -ForegroundColor Cyan
 } catch {
@@ -53,7 +53,7 @@ Write-Host ""
 # Test 4: Get Users (Admin only)
 Write-Host "4. Testing GET /api/users (admin only)" -ForegroundColor Yellow
 try {
-    $users = Invoke-RestMethod -Uri "http://localhost/wishlists/public/api/users" -Method Get -Headers $headers
+    $users = Invoke-RestMethod -Uri "http://localhost/wishlist/public/api/users" -Method Get -Headers $headers
     Write-Host "   ✓ Success! Found $($users.Count) users" -ForegroundColor Green
 } catch {
     Write-Host "   ✗ Failed: $_" -ForegroundColor Red

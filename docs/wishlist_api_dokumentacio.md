@@ -7,9 +7,9 @@ Ez a dokumentáció a Laravel alapú wishlist (kívánságlista) backend API tel
 ## Projekt Áttekintés
 
 **Base URL-ek:**
-- XAMPP: `http://127.0.0.1/wishlist_auth/public/api`
+- XAMPP: `http://localhost/wishlist/public/api`
 - Laravel serve: `http://127.0.0.1:8000/api`
-- Aktuális projekt: `http://localhost:8000/api`
+- Aktuális projekt: `http://localhost/wishlist/public/api`
 
 **Technológiák:**
 - Laravel 12
@@ -321,7 +321,7 @@ return Application::configure(basePath: dirname(__DIR__))
 php artisan serve
 
 # POSTMAN teszt (publikus végpont)
-# GET http://localhost:8000/api/products
+# GET http://localhost/wishlist/public/api/products
 # Headers: Accept: application/json
 ```
 
@@ -1859,7 +1859,7 @@ class UserController extends Controller
 
 ### Általános Információk
 
-**Base URL:** `http://localhost:8000/api`
+**Base URL:** `http://localhost/wishlist/public/api`
 
 **Content-Type:** `application/json`  
 **Accept:** `application/json`
@@ -1891,7 +1891,7 @@ Authorization: Bearer {jwt_token}
 #### POST /api/register
 Új felhasználó regisztrálása.
 
-**URL:** `http://localhost:8000/api/register`
+**URL:** `http://localhost/wishlist/public/api/register`
 
 **Headers:**
 ```
@@ -1943,7 +1943,7 @@ Accept: application/json
 #### POST /api/login
 Bejelentkezés és JWT token megszerzése.
 
-**URL:** `http://localhost:8000/api/login`
+**URL:** `http://localhost/wishlist/public/api/login`
 
 **Headers:**
 ```
@@ -2006,7 +2006,7 @@ Accept: application/json
 #### GET /api/products
 Összes termék lekérése (publikus, JWT token nélkül).
 
-**URL:** `http://localhost:8000/api/products`
+**URL:** `http://localhost/wishlist/public/api/products`
 
 **Headers:**
 ```
@@ -2040,14 +2040,14 @@ Accept: application/json
 #### GET /api/products/{id}
 Adott termék részleteinek lekérése (publikus).
 
-**URL:** `http://localhost:8000/api/products/{id}`
+**URL:** `http://localhost/wishlist/public/api/products/{id}`
 
 **Headers:**
 ```
 Accept: application/json
 ```
 
-**Példa URL:** `http://localhost:8000/api/products/1`
+**Példa URL:** `http://localhost/wishlist/public/api/products/1`
 
 **Válasz:** 200 OK
 ```json
@@ -2074,7 +2074,7 @@ Accept: application/json
 #### POST /api/logout
 JWT token invalidálása (blacklist-re helyezés).
 
-**URL:** `http://localhost:8000/api/logout`
+**URL:** `http://localhost/wishlist/public/api/logout`
 
 **Headers:**
 ```
@@ -2102,7 +2102,7 @@ Accept: application/json
 #### GET /api/me
 Aktuális bejelentkezett felhasználó adatainak lekérése.
 
-**URL:** `http://localhost:8000/api/me`
+**URL:** `http://localhost/wishlist/public/api/me`
 
 **Headers:**
 ```
@@ -2135,7 +2135,7 @@ Accept: application/json
 #### POST /api/refresh
 JWT token frissítése (új token generálás).
 
-**URL:** `http://localhost:8000/api/refresh`
+**URL:** `http://localhost/wishlist/public/api/refresh`
 
 **Headers:**
 ```
@@ -2166,7 +2166,7 @@ Accept: application/json
 #### GET /api/wishlists
 Saját kívánságlista lekérése.
 
-**URL:** `http://localhost:8000/api/wishlists`
+**URL:** `http://localhost/wishlist/public/api/wishlists`
 
 **Headers:**
 ```
@@ -2202,7 +2202,7 @@ Accept: application/json
 #### POST /api/wishlists
 Termék hozzáadása a kívánságlistához.
 
-**URL:** `http://localhost:8000/api/wishlists`
+**URL:** `http://localhost/wishlist/public/api/wishlists`
 
 **Headers:**
 ```
@@ -2254,7 +2254,7 @@ Accept: application/json
 #### GET /api/wishlists/{id}
 Adott kívánságlista elem lekérése.
 
-**URL:** `http://localhost:8000/api/wishlists/{id}`
+**URL:** `http://localhost/wishlist/public/api/wishlists/{id}`
 
 **Headers:**
 ```
@@ -2288,7 +2288,7 @@ Accept: application/json
 #### DELETE /api/wishlists/{id}
 Termék eltávolítása a kívánságlistából (soft delete).
 
-**URL:** `http://localhost:8000/api/wishlists/{id}`
+**URL:** `http://localhost/wishlist/public/api/wishlists/{id}`
 
 **Headers:**
 ```
@@ -2317,7 +2317,7 @@ Accept: application/json
 #### POST /api/products
 Új termék létrehozása (csak admin).
 
-**URL:** `http://localhost:8000/api/products`
+**URL:** `http://localhost/wishlist/public/api/products`
 
 **Headers:**
 ```
@@ -2364,7 +2364,7 @@ Accept: application/json
 #### PUT /api/products/{id}
 Termék módosítása (csak admin).
 
-**URL:** `http://localhost:8000/api/products/{id}`
+**URL:** `http://localhost/wishlist/public/api/products/{id}`
 
 **Headers:**
 ```
@@ -2401,7 +2401,7 @@ Accept: application/json
 #### DELETE /api/products/{id}
 Termék törlése (csak admin, soft delete).
 
-**URL:** `http://localhost:8000/api/products/{id}`
+**URL:** `http://localhost/wishlist/public/api/products/{id}`
 
 **Headers:**
 ```
@@ -2428,7 +2428,7 @@ Accept: application/json
 #### GET /api/users
 Összes felhasználó listázása (csak admin).
 
-**URL:** `http://localhost:8000/api/users`
+**URL:** `http://localhost/wishlist/public/api/users`
 
 **Headers:**
 ```
@@ -2472,7 +2472,7 @@ Accept: application/json
 #### GET /api/admin/wishlists
 Összes kívánságlista lekérése (csak admin).
 
-**URL:** `http://localhost:8000/api/admin/wishlists`
+**URL:** `http://localhost/wishlist/public/api/admin/wishlists`
 
 **Headers:**
 ```
@@ -2518,7 +2518,7 @@ Accept: application/json
 #### GET /api/admin/users/{userId}/wishlists
 Adott felhasználó kívánságlistája (csak admin).
 
-**URL:** `http://localhost:8000/api/admin/users/{userId}/wishlists`
+**URL:** `http://localhost/wishlist/public/api/admin/users/{userId}/wishlists`
 
 **Headers:**
 ```
