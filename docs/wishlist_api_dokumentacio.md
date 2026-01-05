@@ -1891,6 +1891,8 @@ Authorization: Bearer {jwt_token}
 #### POST /api/register
 Új felhasználó regisztrálása.
 
+<img width="840" height="619" alt="image" src="https://github.com/user-attachments/assets/e205cf5c-7a1e-4241-9631-2ddd2ced246a" />
+
 **URL:** `http://localhost/wishlist/public/api/register`
 
 **Headers:**
@@ -1942,6 +1944,8 @@ Accept: application/json
 
 #### POST /api/login
 Bejelentkezés és JWT token megszerzése.
+
+<img width="840" height="678" alt="image" src="https://github.com/user-attachments/assets/d3a17391-12d0-4b09-bee7-43ce5f050dd3" />
 
 **URL:** `http://localhost/wishlist/public/api/login`
 
@@ -2254,6 +2258,8 @@ Accept: application/json
 #### GET /api/wishlists/{id}
 Adott kívánságlista elem lekérése.
 
+<img width="827" height="299" alt="image" src="https://github.com/user-attachments/assets/88483fed-75be-4271-ad92-3d4a05973564" />
+
 **URL:** `http://localhost/wishlist/public/api/wishlists/{id}`
 
 **Headers:**
@@ -2316,6 +2322,8 @@ Accept: application/json
 
 #### POST /api/products
 Új termék létrehozása (csak admin).
+
+<img width="870" height="685" alt="image" src="https://github.com/user-attachments/assets/9cec8b59-8884-41e9-86ee-efb92062e9d2" />
 
 **URL:** `http://localhost/wishlist/public/api/products`
 
