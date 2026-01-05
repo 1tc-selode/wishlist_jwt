@@ -255,7 +255,7 @@ use Symfony\Component\HttpFoundation\Response;  // HTTP válasz konstansok
 /**
  * IsAdmin Middleware - Admin jogosultság ellenőrzése
  * Ez a middleware ellenőrzi, hogy a bejelentkezett felhasználó admin-e
- * JWT alapú autentikáció esetén az auth()->user() adja vissza a felhasználót
+ * JWT alapú autentikáció esetén az auth('api')->user() adja vissza a felhasználót
  */
 class IsAdmin
 {
@@ -1103,8 +1103,8 @@ class AuthController extends Controller
             ], 500);  // 500 Internal Server Error
         }
 
-        // Bejelentkezett felhasználó lekérése
-        $user = auth()->user();
+        // Bejelentkezett felhasználó lekérése (explicit api guard használata)
+        $user = auth('api')->user();
 
         // Sikeres bejelentkezés visszajelzése JWT tokennel
         return response()->json([
@@ -1112,7 +1112,7 @@ class AuthController extends Controller
             'user' => $user,                           // Felhasználó adatai
             'access_token' => $token,                  // JWT access token
             'token_type' => 'Bearer',                  // Token típusa (Bearer a standard)
-            'expires_in' => auth()->factory()->getTTL() * 60  // Lejárati idő másodpercben
+            'expires_in' => config('jwt.ttl') * 60     // Lejárati idő másodpercben (3600 sec)
         ]);
     }
 
@@ -1154,8 +1154,8 @@ class AuthController extends Controller
     public function me(Request $request)
     {
         // Az autentikált felhasználó adatainak visszaadása
-        // auth()->user() a JWT guard alapján adja vissza a usert
-        return response()->json(auth()->user());
+        // auth('api')->user() explicit módon az api guard-ot használja
+        return response()->json(auth('api')->user());
     }
 
     /**
@@ -1176,7 +1176,7 @@ class AuthController extends Controller
             return response()->json([
                 'access_token' => $token,
                 'token_type' => 'Bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60
+                'expires_in' => config('jwt.ttl') * 60  // JWT config-ból (60 perc = 3600 sec)
             ]);
         } catch (JWTException $e) {
             return response()->json([

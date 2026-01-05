@@ -80,14 +80,14 @@ class AuthController extends Controller
             ], 500);
         }
 
-        $user = auth()->user();
+        $user = auth('api')->user();
 
         return response()->json([
             'message' => 'Login successful',
             'user' => $user,
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => config('jwt.ttl') * 60
         ]);
     }
 
@@ -114,7 +114,7 @@ class AuthController extends Controller
      */
     public function me(Request $request)
     {
-        return response()->json(auth()->user());
+        return response()->json(auth('api')->user());
     }
 
     /**
@@ -128,7 +128,7 @@ class AuthController extends Controller
             return response()->json([
                 'access_token' => $token,
                 'token_type' => 'Bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60
+                'expires_in' => config('jwt.ttl') * 60
             ]);
         } catch (JWTException $e) {
             return response()->json([
